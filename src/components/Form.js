@@ -25,24 +25,24 @@ const Form = (props) => {
   const [weakness,setWeakness]=useState(false);
   const [cardiac,setCardiac]=useState(false);
 
-  const submitPressed =async () => {
-    setPressed(true);
-    const res = await axios.post()
+  const submitPressed =() => {
+    props.setLoading(true);
+    //const res = await axios.post();
+    setTimeout(()=>props.setLoading(false),2000);
     setPressed(false);
   }
   location_find();
   if(!location){
   return <Login loading={true} string="Detecting your location..." />
-}
-  else if (pressed){
-    return <Login loading={true} string="Allocating ambulance , plase wait..." />
+  }else if(props.loading){
+    return <Login loading={true} string="Allocating your ambulance ..." />
   }else
     return (
     <>
-      {/* <h1 id="title">Dogluv Bakery Survey Form</h1>
+      { /* <h1 id="title">Dogluv Bakery Survey Form</h1>
       <p id="description">
         Thank you for taking time to help us keep improving!
-      </p> */}
+      </p> */ }
       <div id="survey-form" style={{width:'400px',height:'93%',overflowY:'visible'}}>
         <div class="form-group">
           <label for="name" id="name-label">
@@ -244,7 +244,8 @@ const Form = (props) => {
           Submit
         </button>
         </div>
-      </div>
+        </div>
+      
       </>
   );
 };

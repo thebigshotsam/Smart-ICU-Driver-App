@@ -170,6 +170,11 @@ a:hover {
   font-size: 20px;
   font-weight: 400;
 }
+.modal{
+  width: 500px;
+  height:300px;
+  background-color: steelblue;
+}
 #survey-form {
   background-color: rgb(29,146,178);
   color: white;
